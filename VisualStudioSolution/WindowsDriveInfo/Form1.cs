@@ -29,8 +29,7 @@ namespace WindowsDriveInfo
         {
             Grid.Rows.Clear();
 
-            StringBuilder sb = new StringBuilder();
-            IntPtr volInfo = FindFirstVolume(sb, 100000);
+            var volumes = VolumeInfo.GetVolumes();
 
             foreach (DriveInfo drive in DriveInfo.GetDrives().OrderBy(d => d.Name))
             {
